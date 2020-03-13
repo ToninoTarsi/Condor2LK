@@ -225,19 +225,47 @@ FileAppend, %A_Tab% </taskpoints> `n, %LKTaskDir%, UTF-8
 FileAppend, %A_Tab% <waypoints> `n, %LKTaskDir%, UTF-8
 
 dllName = %condorDir%\NaviCon.dll
+if(! fileexist(dllName)) {
+	MsgBox NaviCon.dll doesnt exist silly!
+	ExitApp
+} 
+
 trnPath = %condorDir%\Landscapes\%SceneryName%\%SceneryName%.trn
+if(! fileexist(trnPath)) {
+	MsgBox trnPath doesnt exist silly!
+	ExitApp
+}
+	
 hModule := DllCall("LoadLibrary", Str, dllName)
+
+
+if( hModule =0 ) {
+	MsgBox NaviCon.dll loading error!
+	ExitApp
+}
+
+
 DllCall("NaviCon\NaviConInit", Str, trnPath)
+
+
 
 id := 1
 while id <= count
 	{
+
 	IniRead, TPName, %TaskDir%, Task, TPName%id%
 	IniRead, TPPosX, %TaskDir%, Task, TPPosX%id%
 	IniRead, TPPosY, %TaskDir%, Task, TPPosY%id%
 	IniRead, TPPosZ, %TaskDir%, Task, TPPosZ%id%
+
+			;MsgBox %TPName%  ,%TPPosX%, %TPPosY% , %TPPosZ%
+
+
 	Longitude := DllCall("NaviCon\XYToLon", Float, TPPosX, Float, TPPosY, Float)
 	Latitude := DllCall("NaviCon\XYToLat", Float, TPPosX, Float, TPPosY, Float)
+
+			;MsgBox %Longitude%  ,%Latitude%
+
 	If (id = 1)
 		{
 		FileAppend, %A_Tab% %A_Tab% <point name="S:%TPName%" latitude="%Latitude%" longitude="%Longitude%" altitude="%TPPosZ%.000000" flags="5"  format="2" style="1"/> `n, %LKTaskDir%, UTF-8

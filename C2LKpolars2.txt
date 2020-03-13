@@ -2,13 +2,13 @@ MassDryGross[kg]  MaxWaterBallast[liters]  Speed1[km/h]  Sink1[m/s]  Speed2  Sin
 
 
 [Antares18S]
-SafteySpeed1=79167
+SafteySpeed1=77777
 AircraftType1=Antares18S
 Handicap1=100
 BallastSecsToEmpty1=190
 polar=350  250  100   -0.54   120    -0.63     150   -1.07   10.97
 
-[ASG29-18]SafteySpeed1=79167AircraftType1=ASG29Handicap1=100BallastSecsToEmpty1=190
+[ASG29-18]SafteySpeed1=75000AircraftType1=ASG29Handicap1=100BallastSecsToEmpty1=190
 polar=360  241  97.89  -0.53   148.94  -1.11   200.00  -2.32  10.50
 
 [ASG29Es-18]SafteySpeed1=79167AircraftType1=ASG29EsHandicap1=100BallastSecsToEmpty1=190
@@ -17,7 +17,7 @@ polar=416  241   105.16  -0.57   152.58  -1.07   200.00  -2.07  10.50
 [ASK21]SafteySpeed1=79167AircraftType1=ASK21Handicap1=100BallastSecsToEmpty1=190
 polar=440  0   87.01  -0.72   143.51  -1.98   200.00  -4.80  17.95
 
-[Blanik]SafteySpeed1=79167AircraftType1=BlanikHandicap1=100BallastSecsToEmpty1=190
+[Blanik]SafteySpeed1=70277AircraftType1=BlanikHandicap1=100BallastSecsToEmpty1=190
 polar=380  0   88.00  -0.88   144.00  -2.65   200.00  -6.85  19.15
 
 
@@ -27,22 +27,22 @@ polar=447  223   108.81  -0.64   154.40  -1.13   200.00  -2.06  10.68
 [DG808C-18]SafteySpeed1=79167AircraftType1=DG808CHandicap1=100BallastSecsToEmpty1=190
 polar=451  223   102.28  -0.56   151.14  -1.09   200.00  -2.18  11.81
 
-[Diana2]SafteySpeed1=79167AircraftType1=Diana2Handicap1=100BallastSecsToEmpty1=190
+[Diana2]SafteySpeed1=76944AircraftType1=Diana2Handicap1=100BallastSecsToEmpty1=190
 polar=242  248  89.18  -0.50   144.59  -1.27   200.00  -2.96   8.64
 
 [Discus2a]SafteySpeed1=79167AircraftType1=Discus2aHandicap1=100BallastSecsToEmpty1=190
 polar=322  208   100.61  -0.65   150.31  -1.33   200.00  -2.73  10.16
 
-[DuoDiscus]SafteySpeed1=79167AircraftType1=DuoDiscusHandicap1=100BallastSecsToEmpty1=190
+[DuoDiscus]SafteySpeed1=73055AircraftType1=DuoDiscusHandicap1=100BallastSecsToEmpty1=190
 polar=500  198  92.45  -0.56   146.22  -1.26   200.00  -2.73  16.40
 
 [EB29R]SafteySpeed1=79167AircraftType1=EB29RHandicap1=100BallastSecsToEmpty1=190
 polar=714  580  100.22  -0.40   150.11  -0.77   200.00  -1.50  14.90
 
-[Genesis2]SafteySpeed1=79167AircraftType1=ASW27Handicap1=100BallastSecsToEmpty1=190
+[Genesis2]SafteySpeed1=77222AircraftType1=Genesis2Handicap1=100BallastSecsToEmpty1=190
 polar=328  196  99.99  -0.65   149.99   -1.52   200.00  -3.48  11.15
 
-[GrunauBaby]SafteySpeed1=79167AircraftType1=GrunauBabyHandicap1=100BallastSecsToEmpty1=190
+[GrunauBaby]SafteySpeed1=41666AircraftType1=GrunauBabyHandicap1=100BallastSecsToEmpty1=190
 polar=240  0  60.47  -0.98  95.23  -2.28   130.00  -5.04  14.20
 
 [JS1-18]SafteySpeed1=79167AircraftType1=JS1Handicap1=100BallastSecsToEmpty1=190
@@ -63,13 +63,13 @@ polar=320  170  95.50  -0.66   147.75  -1.45   200.00  -3.08  10.50
 [LS8neo]SafteySpeed1=79167AircraftType1=LS8neoHandicap1=100BallastSecsToEmpty1=190
 polar=350  190   100.87  -0.65   150.44  -1.28   200.00  -2.55  10.50
 
-[SG38]SafteySpeed1=79167AircraftType1=SG38Handicap1=100BallastSecsToEmpty1=190
+[SG38]SafteySpeed1=31944AircraftType1=SG38Handicap1=100BallastSecsToEmpty1=190
 polar=200  0  59.75  -2.01  79.87  -3.21   100.00  -5.46  16.00
 
 [SGS1-26]SafteySpeed1=79167AircraftType1=SGS1Handicap1=100BallastSecsToEmpty1=190
 polar=282  0  78.25  -0.98   119.12  -1.98   160.00  -3.96  14.90
 
-[StdCirrus]SafteySpeed1=79167AircraftType1=StdCirrusHandicap1=100BallastSecsToEmpty1=190
+[StdCirrus]SafteySpeed1=61111AircraftType1=StdCirrusHandicap1=100BallastSecsToEmpty1=190
 polar=290   60  89.08  -0.67   139.54  -1.46   190.00  -3.10  10.04
 
 [Ventus3-15]SafteySpeed1=79167AircraftType1=Ventus3Handicap1=100BallastSecsToEmpty1=190

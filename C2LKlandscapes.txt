@@ -1,9 +1,14 @@
 [AA]
-LKM=ITA_ALPS.LKM
-DEM=AA_AA.DEM
+LKM=
+DEM=ITA_NORD.DEM
 CUP=AA_AA.CUP
 
+[Centro_Italia]
+LKM=
+DEM=ITA_CENTRO.DEM
+CUP=Centro_Italia.cup
+
 [Slovenia2]
-LKM=ITA_ALPS.LKM
-DEM=AA_AA.DEM
-CUP=AA_AA.CUP
+LKM=
+DEM=Slovenia2.DEM
+CUP=Slovenia2.cup

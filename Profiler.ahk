@@ -13,23 +13,25 @@ IniRead, LkDefaultAircraftDir, Condor2LK.ini, LkDefaultAircraftDir, LkDefaultAir
 
 linenum := TF_Find(LkDefaultAircraftDir,"","", "SafteySpeed1")
 TF_ReplaceLine("!"LkDefaultAircraftDir,linenum,linenum,"SafteySpeed1=")
-IniRead, safetyspeed, C2LKPolars.txt, %PlaneType%, SafteySpeed1
+IniRead, safetyspeed, C2LKPolars2.txt, %PlaneType%, SafteySpeed1
+;MsgBox, %safetyspeed%
+
 TF_InsertSuffix("!"LkDefaultAircraftDir,linenum,linenum, safetyspeed)
 
 linenum := TF_Find(LkDefaultAircraftDir,"","", "Handicap1")
 TF_ReplaceLine("!"LkDefaultAircraftDir,linenum,linenum,"Handicap1=")
-IniRead, Handicap, C2LKPolars.txt, %PlaneType%, Handicap1
+IniRead, Handicap, C2LKPolars2.txt, %PlaneType%, Handicap1
 TF_InsertSuffix("!"LkDefaultAircraftDir,linenum,linenum, Handicap)
 
 linenum := TF_Find(LkDefaultAircraftDir,"","", "BallastSecsToEmpty1")
 TF_ReplaceLine("!"LkDefaultAircraftDir,linenum,linenum,"BallastSecsToEmpty1=")
-IniRead, BallastSecsToEmpty, C2LKPolars.txt, %PlaneType%, BallastSecsToEmpty1
+IniRead, BallastSecsToEmpty, C2LKPolars2.txt, %PlaneType%, BallastSecsToEmpty1
 TF_InsertSuffix("!"LkDefaultAircraftDir,linenum,linenum, BallastSecsToEmpty)
 
 linenum := TF_Find(LkDefaultAircraftDir,"","", "AircraftType1")
 TF_ReplaceLine("!"LkDefaultAircraftDir,linenum,linenum,"AircraftType1=")
 TF_InsertSuffix("!"LkDefaultAircraftDir,linenum,linenum, """")
-IniRead, AircraftType, C2LKPolars.txt, %PlaneType%, AircraftType1
+IniRead, AircraftType, C2LKPolars2.txt, %PlaneType%, AircraftType1
 TF_InsertSuffix("!"LkDefaultAircraftDir,linenum,linenum, AircraftType)
 TF_InsertSuffix("!"LkDefaultAircraftDir,linenum,linenum, """")
 
@@ -39,12 +41,12 @@ TF_InsertSuffix("!"LkDefaultAircraftDir,linenum,linenum, """")
 
 if advance = auto
 	{
-	advancen := 0
+	advancen := 1
 	}
 	else
 		if advance = manual
 			{
-			advancen := 1
+			advancen := 0
 			}
 			else
 				if advance = Arm
@@ -126,7 +128,6 @@ if (CUP = 0)
 ;next - uglupotoodpornic - ostrzezenie ze nie ma scenerii
 return
 }
-
 
 
 
