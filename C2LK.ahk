@@ -498,7 +498,7 @@ FileDelete, %LKPolarDir%
 FileAppend, * Condor polar for: %PlaneType% `n, %LKPolarDir%
 FileAppend, * MassDryGross[kg]`, MaxWaterBallast[liters]`, Speed1[km/h]`, Sink1[m/s]`, Speed2`, Sink2`, Speed3`, Sink3`, WingArea[m2] `n, %LKPolarDir%
 ;msgbox %PlaneType%
-IniRead, PolarString, C2LKPolars.txt, %PlaneType%, polar
+IniRead, PolarString, C2LKPolars2.txt, %PlaneType%, polar
 FileAppend, %Polarstring% `n, %LKPolarDir%
 
 
