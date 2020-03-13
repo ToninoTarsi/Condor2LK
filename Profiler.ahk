@@ -1,6 +1,5 @@
 profiler(advance)
 {
-;#include E:\Projects\tf.ahk
 ;Aircraft profile***********************************
 	
 Iniread, LKCUPpath, Condor2LK.ini, LKCUPpath, LKCUPpath
