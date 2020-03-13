@@ -1,0 +1,178 @@
+MassDryGross[kg], MaxWaterBallast[liters], Speed1[km/h], Sink1[m/s], Speed2, Sink2, Speed3, Sink3, WingArea[m2]
+
+
+[ASW27]
+SafteySpeed1=79167
+AircraftType1=ASW27
+Handicap1=114
+BallastSecsToEmpty1=190
+polar=320, 190, 83, -0.52, 100, -0.58, 200, -2.39 , 9
+
+[ASG29]
+SafteySpeed1=79167
+AircraftType1=ASG29
+Handicap1=120
+BallastSecsToEmpty1=200
+polar=360, 200, 82, -0.47, 96, -0.52, 200, -2.34, 10.5
+
+[ASK13]
+SafteySpeed1=55556
+AircraftType1=ASK13
+Handicap1=78
+BallastSecsToEmpty1=0
+polar=347, 0, 65, -0.72, 78, -0.8, 131, -2.27, 16
+
+[ASW15]
+SafteySpeed1=61111
+AircraftType1=ASW15
+Handicap1=98
+BallastSecsToEmpty1=90
+polar=325, 90, 80, -0.6, 88, -0.66, 160, -2.07, 10.68
+
+[ASW19]
+SafteySpeed1=70833
+AircraftType1=ASW19
+Handicap1=100
+BallastSecsToEmpty1=100
+polar=350, 100, 83, -0.62, 91, -0.65, 161, -1.91, 11
+
+[ASW22]
+SafteySpeed1=77778
+AircraftType1=ASW22
+Handicap1=128
+BallastSecsToEmpty1=117
+polar=541, 235, 81, -0.39, 93, -0.42, 191, -2.25, 16.69
+
+[ASW28]
+SafteySpeed1=79167
+AircraftType1=ASW28
+Handicap1=108
+BallastSecsToEmpty1=180
+polar=325, 180, 86, -0.55, 92, -0.57, 160, -1.71, 10.5
+
+
+[ASW28-18]
+SafteySpeed1=75000
+AircraftType1=ASW28-18
+Handicap1=114
+BallastSecsToEmpty1=190
+polar=355, 190, 83, -0.49, 89, -0.51, 156, -1.54, 11.88
+
+
+[Discus2]
+SafteySpeed1=69444
+AircraftType1=Discus2
+Handicap1=108
+BallastSecsToEmpty1=200
+polar=330, 200, 86, -0.56, 95, -0.59, 158, -1.66, 10.16
+
+
+[Discus2c]
+SafteySpeed1=77778
+AircraftType1=Discus2c
+Handicap1=114
+BallastSecsToEmpty1=200
+polar=356, 200, 83, -0.49, 89, -0.51, 156, -1.55, 11.36
+
+[Fox]
+SafteySpeed1=78333
+AircraftType1=FOX
+Handicap1=80
+BallastSecsToEmpty1=0
+polar=424, 0, 100, -0.97, 111, -1.02, 181, -2.57, 12.34
+
+
+[Jantar2b]
+SafteySpeed1=69444
+AircraftType1=Jantar2b
+Handicap1=116
+BallastSecsToEmpty1=83
+polar=422, 165, 80, -0.46, 88, -0.48, 174, -1.99, 14.25
+
+[JantarStd3]
+SafteySpeed1=79167
+AircraftType1=JantarStd3
+Handicap1=100
+BallastSecsToEmpty1=150
+polar=360, 150, 86, -0.65, 95, -0.68, 161, -1.86, 10.66
+
+
+[Libelle]
+SafteySpeed1=69444
+AircraftType1=Libelle
+Handicap1=98
+BallastSecsToEmpty1=50
+polar=285, 50, 79, -0.63, 88, -0.67, 154, -1.94, 9.85
+
+[LS10]
+SafteySpeed1=77778
+AircraftType1=LS10
+Handicap1=120
+BallastSecsToEmpty1=190
+polar=356, 190, 81, -0.5, 98, -0.55, 189, -1.99, 11.45
+
+[LS4]
+SafteySpeed1=77778
+AircraftType1=LS4
+Handicap1=106
+BallastSecsToEmpty1=170
+polar=340, 170, 84, -0.61, 96, -0.66, 157, -1.71, 10.5
+
+[LS6]
+SafteySpeed1=75000
+AircraftType1=LS6
+Handicap1=112
+BallastSecsToEmpty1=160
+polar=340, 160, 81, -0.58, 100, -0.64, 196, -2.17, 10.5
+
+
+[LS8]
+SafteySpeed1=77778
+AircraftType1=LS8
+Handicap1=108
+BallastSecsToEmpty1=190
+polar=335, 190, 82, -0.58, 97, -0.63, 162, -1.71, 10.5
+
+[LS8s]
+SafteySpeed1=77778
+AircraftType1=LS8s
+Handicap1=114
+BallastSecsToEmpty1=190
+polar=350, 190, 84, -0.51, 94, -0.55, 161, -1.66, 11.4
+
+[Nimbus4]
+SafteySpeed1=76389
+AircraftType1=Nimbus4
+Handicap1=128
+BallastSecsToEmpty1=150
+polar=339, 300, 79, -0.39, 92, -0.42, 181, -2.01, 17.86
+
+[PW-5]
+SafteySpeed1=59167
+AircraftType1=PW5
+Handicap1=86
+BallastSecsToEmpty1=0
+polar=270, 0, 70, -0.66, 82, -0.71, 135, -1.85, 10.16
+
+[Ventus2]
+SafteySpeed1=75000
+AircraftType1=Ventus2
+Handicap1=114
+BallastSecsToEmpty1=200
+polar=315, 200, 81, -0.52, 100, -0.58, 181, -1.85, 9.67
+
+[Ventus2cx]
+SafteySpeed1=79167
+AircraftType1=Ventus2cx
+Handicap1=120
+BallastSecsToEmpty1=200
+polar=390, 200, 78, -0.48, 96, -0.53, 179, -1.71, 11.03
+
+
+
+
+
+
+ 
+
+ 
