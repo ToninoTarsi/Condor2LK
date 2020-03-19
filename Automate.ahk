@@ -74,6 +74,7 @@ StartLK8000(param1, param2) {
 
     Run, C2LK.exe
     WinWait  , ahk_exe C2LK.exe
+    Sleep, 500
     ControlClick, Button3 , ahk_exe C2LK.exe
 
     Run D:\Condor2\Tools\LK8000\LK8000-PC.exe -x=960 -y=576
@@ -88,11 +89,11 @@ StartLK8000(param1, param2) {
     ;Sleep, 500 
     
 
-    IniRead, StartHeight, C:\Users\tonyt\Documents\Condor\Pilots\Tarsi_Tonino\Flightplan.fpl, Task, TPHeight1
-    IniRead, WindDir, C:\Users\tonyt\Documents\Condor\Pilots\Tarsi_Tonino\Flightplan.fpl, Weather, WindDir
-    IniRead, WindSpeed, C:\Users\tonyt\Documents\Condor\Pilots\Tarsi_Tonino\Flightplan.fpl, Weather, WindSpeed
-    IniRead, Inversion, C:\Users\tonyt\Documents\Condor\Pilots\Tarsi_Tonino\Flightplan.fpl, Weather, ThermalsInversionheight
-    IniRead, Strength, C:\Users\tonyt\Documents\Condor\Pilots\Tarsi_Tonino\Flightplan.fpl, Weather, ThermalsStrength
+    IniRead, StartHeight, TaskDir, Task, TPHeight1
+    IniRead, WindDir, TaskDir, Weather, WindDir
+    IniRead, WindSpeed, TaskDir, Weather, WindSpeed
+    IniRead, Inversion, TaskDir, Weather, ThermalsInversionheight
+    IniRead, Strength, TaskDir, Weather, ThermalsStrength
 
 
     ;MsgBox, 0, StartHeight, %StartHeight%

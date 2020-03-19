@@ -28,3 +28,14 @@ CUP=
 LKM=SouthernNorway4.LKM
 DEM=SouthernNorway4.DEM
 CUP=
+
+[New_Zealand]
+LKM=New_Zealand.LKM
+DEM=New_Zealand.DEM
+CUP=
+
+[Netherlands]
+LKM=Netherlands.LKM
+DEM=Netherlands.DEM
+CUP=
+
