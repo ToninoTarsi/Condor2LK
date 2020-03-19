@@ -7,7 +7,13 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
     
 IniRead, TaskDir, Condor2LK.ini, TaskDir, TaskDir
+
+
 SplitPath, TaskDir,, dir
+
+
+
+
 
 
 
@@ -77,7 +83,11 @@ StartLK8000(param1, param2) {
     Sleep, 500
     ControlClick, Button3 , ahk_exe C2LK.exe
 
-    Run D:\Condor2\Tools\LK8000\LK8000-PC.exe -x=960 -y=576
+    IniRead, LKTaskDir, Condor2LK.ini, LKTaskDir, LKTaskDir
+    SplitPath, LKTaskDir,, dirapp
+    SplitPath, dirapp,, dirLK
+
+    Run %dirLK%\LK8000-PC.exe -x=960 -y=576
     WinWait  , ahk_exe LK8000-PC.exe
     IniRead, LK8000_X, Condor2LK.ini, ScreenPosition, LK8000_X
     IniRead, LK8000_Y, Condor2LK.ini, ScreenPosition, LK8000_Y
