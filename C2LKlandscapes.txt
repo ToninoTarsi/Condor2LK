@@ -1,14 +1,30 @@
 [AA2]
 LKM=ITA_NORD.LKM
-DEM=ITA_NORD.DEM
-CUP=AA_AA.CUP
+DEM=AA2.DEM
+CUP=
 
 [Centro_Italia]
 LKM=ITA_CENTRO.LKM
-DEM=ITA_CENTRO.DEM
-CUP=Centro_Italia.cup
+DEM=Centro_Italia.DEM
+CUP=
 
 [Slovenia2]
 LKM=
 DEM=Slovenia2.DEM
-CUP=Slovenia2.cup
+CUP=Slovenia2.LKM
+
+
+[Andalucia_C2]
+LKM=Andalucia_C2.LKM
+DEM=Andalucia_C2.DEM
+CUP=
+
+[BigPyrenees2]
+LKM=BigPyrenees2.LKM
+DEM=BigPyrenees2.DEM
+CUP=
+
+[SouthernNorway4]
+LKM=SouthernNorway4.LKM
+DEM=SouthernNorway4.DEM
+CUP=

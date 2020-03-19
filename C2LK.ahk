@@ -36,7 +36,7 @@ Gui, Add, DropDownList, vAdvance Choose1 x300 y10 w100, Auto|Manual|Arm|ArmStart
 Gui, Add, Edit, Hidden1 vAATtime x234 y63 w100 h30 ,
 Gui, Add, Button,  x24 y113 w370 h120 , Convert
 Gui, Add, Text, Hidden1 x344 y70 w40 h30 , min.
-Gui, Show, x557 y353 h256 w418 , Condor2LK_v1.2 ; New GUI Window
+Gui, Show, x557 y353 h256 w418 , C2LK ; New GUI Window
 Return
 
 RadioAAT:
@@ -150,7 +150,7 @@ While a < count
 			{
 			a := count + 1
 			r := 1
-			MsgBox  Mixed Tp radii not alowed. %Tp1Radius% m radii will be used.
+			;MsgBox  Mixed Tp radii not alowed. %Tp1Radius% m radii will be used.
 			}
 		}
 
