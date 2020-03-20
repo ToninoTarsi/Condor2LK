@@ -98,12 +98,12 @@ StartLK8000(param1, param2) {
     ControlClick  x500 Y250, ahk_exe LK8000-PC.exe
     ;Sleep, 500 
     
-
-    IniRead, StartHeight, TaskDir, Task, TPHeight1
-    IniRead, WindDir, TaskDir, Weather, WindDir
-    IniRead, WindSpeed, TaskDir, Weather, WindSpeed
-    IniRead, Inversion, TaskDir, Weather, ThermalsInversionheight
-    IniRead, Strength, TaskDir, Weather, ThermalsStrength
+    IniRead, TaskDir, Condor2LK.ini, TaskDir, TaskDir
+    IniRead, StartHeight, %TaskDir%, Task, TPHeight1
+    IniRead, WindDir, %TaskDir%, Weather, WindDir
+    IniRead, WindSpeed, %TaskDir%, Weather, WindSpeed
+    IniRead, Inversion, %TaskDir%, Weather, ThermalsInversionheight
+    IniRead, Strength, %TaskDir%, Weather, ThermalsStrength
 
 
     ;MsgBox, 0, StartHeight, %StartHeight%
