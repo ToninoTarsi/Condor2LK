@@ -522,6 +522,14 @@ else
 	}
 DllCall("FreeLibrary", "UInt", hModule)  ; To conserve memory, the DLL may be unloaded after using it.
 IniRead, PlaneType, %TaskDir%, Plane, Name
+IniRead, FixedMass, %TaskDir%, Plane, FixedMass
+;MsgBox, %FixedMass%
+if ( FixedMass >  0 )
+{
+	PlaneType = %PlaneType%-FXB
+	;MsgBox, %PlaneType%
+
+}
 FileDelete, %LKPolarDir%
 FileAppend, * Condor polar for: %PlaneType% `n, %LKPolarDir%
 FileAppend, * MassDryGross[kg]`, MaxWaterBallast[liters]`, Speed1[km/h]`, Sink1[m/s]`, Speed2`, Sink2`, Speed3`, Sink3`, WingArea[m2] `n, %LKPolarDir%
