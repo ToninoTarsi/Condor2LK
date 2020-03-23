@@ -86,7 +86,7 @@ IniRead, FinishRadius, %TaskDir%, Task, TPRadius%Count%
 					else
 					{
 					FileAppend, %A_Tab% %A_Tab% <start type="line" radius="%StartRadius%.000000"/> `n, %LKTaskDir%, UTF-8	
-					MsgBox  Unsupported Start type sector. Line sector will be used
+					MsgBox  0x00,,Unsupported Start type sector. Line sector will be used,1
 					}
 
 	If (FinishType = 0) and (FinishAngle = 180)
@@ -100,7 +100,7 @@ IniRead, FinishRadius, %TaskDir%, Task, TPRadius%Count%
 						else
 						{
 						FileAppend, %A_Tab% %A_Tab% <finish type="line" radius="%FinishRadius%.000000"/> `n, %LKTaskDir%, UTF-8	
-						MsgBox  Unsupported Finish type sector. Line sector will be used
+						MsgBox   0x00,,Unsupported Finish type sector. Line sector will be used,1
 						}
 						
 ;*******************Check if window type TP's used in condor task************* used 
@@ -116,7 +116,7 @@ While a < count
 			{
 			a := count + 1
 			b := 1
-			MsgBox  Unsupported Tp type. 500m cylinders will be used.
+			MsgBox   0x00,,Unsupported Tp type. 500m cylinders will be used.,1
 			}
 		}
 
@@ -133,7 +133,8 @@ While a < count
 			{
 			a := count + 1
 			c := 1
-			MsgBox Mixed Tp angles not alowed. FAI sectors will be used.
+			MsgBox 0x00,,Mixed Tp angles not alowed. FAI sectors will be used.,1
+
 			}
 		}
 
@@ -150,7 +151,7 @@ While a < count
 			{
 			a := count + 1
 			r := 1
-			;MsgBox  Mixed Tp radii not alowed. %Tp1Radius% m radii will be used.
+			MsgBox  0x00,,Mixed Tp radii not alowed. %Tp1Radius% m radii will be used.,1
 			}
 		}
 
@@ -174,7 +175,7 @@ if b = 1
 				FileAppend, %A_Tab% %A_Tab% <sector type="sector" Radius="%Tp1Radius%.000000"/> `n, %LKTaskDir%, UTF-8
 					if (count > 2)
 					{
-					MsgBox  Sector angle not alowed. FAI sectors with %Tp1Radius% m radii will be used.
+					MsgBox  0x00,,Sector angle not alowed. FAI sectors with %Tp1Radius% m radii will be used.,1
 					}
 				}
 
@@ -331,7 +332,7 @@ If (Tp1Angle = 90) and (StartType = 0)
 				FileAppend, %A_Tab% %A_Tab% <point idx="0" name="S:%TPName%" type="circle" radius="%Tp1Radius%.000000" lock="false" offset-radius="0.000000" offset-radial="0.000000"/> `n, %LKTaskDir%, UTF-8
 			else
 			{
-			MsgBox Unsuported start sector angle. Line start will be used.
+			MsgBox 0x00,,Unsuported start sector angle. Line start will be used.,1
 			FileAppend, %A_Tab% %A_Tab% <point idx="0" name="S:%TPName%" type="line" radius="%Tp1Radius%.000000" lock="false" offset-radius="0.000000" offset-radial="0.000000"/> `n, %LKTaskDir%, UTF-8
 			}
 a := 2
@@ -411,7 +412,7 @@ If (FinishType = 0) and (FinishAngle = 180)
 						else
 						{
 						FileAppend, %A_Tab% %A_Tab% <point idx="%idx%" name="F:%TPName%" type="line" radius="%FinishRadius%.000000" lock="false" offset-radius="0.000000" offset-radial="0.000000"/> `n, %LKTaskDir%, UTF-8	
-						MsgBox  Unsupported Finish type sector. Line sector will be used
+						MsgBox  0x00,,Unsupported Finish type sector. Line sector will be used,1
 						}		
 FileAppend, %A_Tab% </taskpoints> `n, %LKTaskDir%, UTF-8
 FileAppend, %A_Tab% <waypoints> `n, %LKTaskDir%, UTF-8
