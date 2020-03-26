@@ -24,7 +24,7 @@ while ( true ) {
         ControlClick  Join, MULTIPLAYER
         ExitApp
     }
-    Sleep 1000
+    Sleep 2000
 }
 
 

@@ -39,3 +39,12 @@ LKM=Netherlands.LKM
 DEM=Netherlands.DEM
 CUP=
 
+[Buenos Aires]
+LKM=Buenos_Aires.LKM
+DEM=Buenos_Aires.DEM
+CUP=
+
+[Norte_Espana]
+LKM=Norte_Espana.LKM
+DEM=Norte_Espana.DEM
+CUP=
