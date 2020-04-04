@@ -1,10 +1,10 @@
 [AA2]
-LKM=ITA_NORD.LKM
+LKM=AA2.LKM
 DEM=AA2.DEM
 CUP=
 
 [Centro_Italia]
-LKM=ITA_CENTRO.LKM
+LKM=Centro_Italia.LKM
 DEM=Centro_Italia.DEM
 CUP=
 
@@ -47,4 +47,9 @@ CUP=
 [Norte_Espana]
 LKM=Norte_Espana.LKM
 DEM=Norte_Espana.DEM
+CUP=
+
+[WestGermany3]
+LKM=WestGermany3.LKM
+DEM=WestGermany3.DEM
 CUP=

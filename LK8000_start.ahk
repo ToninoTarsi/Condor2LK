@@ -5,16 +5,9 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #include %A_ScriptDir%\WatchDirectory.ahk
 
-
-    
-IniRead, TaskDir, Condor2LK.ini, TaskDir, TaskDir
+StartLK8000("","")
 
 
-SplitPath, TaskDir,, dir
-
-
-WatchDirectory(dir, "StartLK8000", 0x10)
-return
 
 CustomMsgBox(Title,StartHeight, WindDir , WindSpeed, Inversion, Strength, RaceStartDelay, StartTimeWindow,   FontOptions="",WindowColor="")
 {
@@ -73,7 +66,7 @@ StartLK8000(param1, param2) {
     
     Sleep, 1000
 
-    CountDown(10)
+    CountDown(1)
 
     Run, C2LK.exe
     WinWait  , ahk_exe C2LK.exe
@@ -101,6 +94,7 @@ StartLK8000(param1, param2) {
     IniRead, WindSpeed, %TaskDir%, Weather, WindSpeed
     IniRead, Inversion, %TaskDir%, Weather, ThermalsInversionheight
     IniRead, Strength, %TaskDir%, Weather, ThermalsStrength
+
     IniRead, RaceStartDelay, %TaskDir%, GameOptions, RaceStartDelay
     IniRead, StartTimeWindow, %TaskDir%, GameOptions, StartTimeWindow
 
@@ -110,6 +104,3 @@ StartLK8000(param1, param2) {
     ExitApp
 
 }
-
-
-

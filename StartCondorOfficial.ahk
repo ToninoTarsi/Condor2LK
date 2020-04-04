@@ -1,23 +1,14 @@
 ﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 #persistent
-#SingleInstance force  
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #Include %A_ScriptDir%\JSON.ahk
 #Persistent
 
-Run RunDll32.exe InetCpl.cpl`,ClearMyTracksByProcess 8	
-Run RunDll32.exe InetCpl.cpl`,ClearMyTracksByProcess 2
 
-;compName1 := "Quarantine"
-;compName1 := "NouZaChalles"
-compName1 := "Pirineos"
-;compName1 := "GP2020"
-
-
- 
-compName2 := "Le Grand Bleu"
+compName1 := "Eurobattle B"
+compName2 := ""
 
 pwd := ""
 
@@ -29,29 +20,28 @@ pwd := ""
 compUrl = 0
 while ( true ) {
 
-        
-    compUrl := CheckCompAlternate(compName1,compName2)
+    compUrl := CheckCompOfficial(compName1,compName2)
 
-    if ( compUrl == 0) { 
-        compUrl := CheckCompOfficial(compName1,compName2)
-    }
+    
 
-    ;ToolTip, %compUrl%
+   ;ToolTip, %compUrl%
 
     if ( compUrl != 0) {
         url := "cndr2://" . compUrl 
         ;MsgBox, %url%
         Run, %url%
-        Sleep, 1000
         WinWait  , MULTIPLAYER
-        Sleep, 1000
+        Sleep, 200
+
         ControlSend, TspSkinEdit1, %pwd% , MULTIPLAYER
-        Sleep, 1000
+
+
+        Sleep, 200
         ControlClick  Join, MULTIPLAYER
         Sleep, 1000
         ExitApp
     }
-    ;Sleep 1000
+    Sleep 1000
 }
 
 
@@ -60,7 +50,7 @@ CheckCompOfficial(compName1,compName2)
 {
     ;Prepare our WinHttpRequest object
     HttpObj := ComObjCreate("WinHttp.WinHttpRequest.5.1")
-    HttpObj.SetTimeouts(60000,60000,60000,60000) ;Set timeouts to 6 seconds
+    HttpObj.SetTimeouts(6000,6000,6000,6000) ;Set timeouts to 6 seconds
 
 
     IE := ComObjCreate("InternetExplorer.Application")
@@ -118,50 +108,6 @@ CheckCompOfficial(compName1,compName2)
     return 0
 }
 
-
-CheckCompAlternate(compName1,compName2)
-{
-    ;Prepare our WinHttpRequest object
-    HttpObj := ComObjCreate("WinHttp.WinHttpRequest.5.1")
-    HttpObj.SetTimeouts(6000,6000,6000,6000) ;Set timeouts to 6 seconds
-
-    url := "http://condor.hitziger.net/serverlist/scripts/php/RequestData.php?data=%7B%22joinable%22%3Atrue%2C%22waiting%22%3Afalse%2C%22race%22%3Afalse%2C%22detail%22%3A0%2C%22search%22%3A%22%22%2C%22lastrefresh%22%3A0%7D"
-    HttpObj.Open("GET",URL)
-    HttpObj.Send()
-
-    ;sleep 200
-    r := HttpObj.Responsetext
-
-    j := json.load(r) ; convert JSON Response to AHK object
-
-    ;msgbox % r
-
-    for k, v in j.server {
-        name := v.name
-        url := v.url
-        stat := v.status
-        serverversion := v.serverversion
-        ;MsgBox %serverversion%
-        if ( serverversion == 2 && %stat% == "0" ) {
-            if ( compName1 != "" ) {
-                IfInString, name, %compName1%
-                {
-                    return url 
-
-                }
-            }
-            if ( compName2 != "" && %stat% == 0  ) {
-                IfInString, name, %compName2%
-                {
-                    return url 
-
-                }
-            }
-        }
-
-    }
-    return 0
-}
 
 
 
