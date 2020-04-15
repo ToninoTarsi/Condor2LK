@@ -8,8 +8,8 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
 
-compName1 := "Lilienthalserver"
-compName2 := ""
+compName1 := "quarantine Cup A"
+compName2 := "Quarantine CUP-A"
 
 pwd := ""
 

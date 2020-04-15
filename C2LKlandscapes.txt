@@ -53,3 +53,9 @@ CUP=
 LKM=WestGermany3.LKM
 DEM=WestGermany3.DEM
 CUP=
+
+[France_Sud_C2]
+LKM=France_Sud_C2.LKM
+DEM=France_Sud_C2.DEM
+CUP=
+

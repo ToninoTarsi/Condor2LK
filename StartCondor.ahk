@@ -10,14 +10,15 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 Run RunDll32.exe InetCpl.cpl`,ClearMyTracksByProcess 8	
 Run RunDll32.exe InetCpl.cpl`,ClearMyTracksByProcess 2
 
-;compName1 := "Quarantine"
+compName1 := "Quarantine CUP-A"
 ;compName1 := "NouZaChalles"
-compName1 := "Pirineos"
+;compName1 := "Pirineos-Server A"
 ;compName1 := "GP2020"
-
-
+;compName1 := "FFF"
+;compName1 := "Eurobattle A"  ; http://condor-danmark.dk/serverlist-2/
+;compName1 := "Norway"
  
-compName2 := "Le Grand Bleu"
+compName2 := "Quarantine A"
 
 pwd := ""
 
@@ -31,6 +32,11 @@ while ( true ) {
 
         
     compUrl := CheckCompAlternate(compName1,compName2)
+
+    if ( compUrl == 0) { 
+        compUrl := CheckCompVirtualsoaring(compName1,compName2)
+    }
+
 
     if ( compUrl == 0) { 
         compUrl := CheckCompOfficial(compName1,compName2)
@@ -54,6 +60,68 @@ while ( true ) {
     ;Sleep 1000
 }
 
+
+CheckCompVirtualsoaring(compName1,compName2)
+{
+    ;Prepare our WinHttpRequest object
+    HttpObj := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+    HttpObj.SetTimeouts(6000,6000,6000,6000) ;Set timeouts to 6 seconds
+
+
+    IE := ComObjCreate("InternetExplorer.Application")
+    IE.Visible := false
+
+    IE.Navigate("https://virtualsoaring.eu/serverlist/" PostCode)
+
+    while IE.readyState!=4 || IE.document.readyState != "complete" || IE.busy
+        continue
+    Sleep 200
+ 
+
+    table  := IE.document.getElementById("serverlist").Rows
+    rows  := table.Length
+
+    ;MsgBox, %rows% 
+
+    ;msg := table[1].getElementsByTagName("td")[A_Index-1].innerText
+    msg =
+    Loop, % rows
+    {
+        i := A_Index-1
+        cols  := table[i].getElementsByTagName("TD").Length
+        ;MsgBox, %cols%
+        if ( cols == 10) {
+            name := table[i].getElementsByTagName("TD")[0].innerText
+            join_status := table[i].getElementsByTagName("TD")[2].innerText
+            condor_version := SubStr(table[i].getElementsByTagName("TD")[4].innerText,1,1)
+            ;MsgBox, %condor_version%
+            url := table[i].getAttribute("data-href")
+            ;MsgBox, %name% %join_status% %url%
+
+            if ( join_status == "Joining Enabled" && condor_version == "2") {
+                if ( compName1 != "" ) {
+                    IfInString, name, %compName1%
+                    {
+                        ;MsgBox  %url%
+                        return url 
+
+                    }
+                    }
+                if ( compName2 != "" ) {
+                    IfInString, name, %compName2%
+                    {
+                        return url 
+                    }
+                }
+            }
+
+        }
+
+    }
+
+    RunWait, Taskkill /f /im iexplore.exe, , Hide
+    return 0
+}
 
 
 CheckCompOfficial(compName1,compName2)

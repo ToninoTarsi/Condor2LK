@@ -61,6 +61,89 @@ CountDown(Secs) {
     Return
 }
 
+SetBalaset() {
+   ; Balast
+    ;Sleep, 100 
+    ControlClick  x930 Y550, ahk_exe LK8000-PC.exe
+    ;Sleep, 100
+    ControlClick  x866 Y300, ahk_exe LK8000-PC.exe
+    ;Sleep, 100
+    ControlClick  x100 Y550, ahk_exe LK8000-PC.exe
+    ;Sleep, 100
+    ControlClick  x300 Y150, ahk_exe LK8000-PC.exe
+
+    ;Sleep, 100
+    ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+
+    ControlClick  x500 Y590, ahk_exe LK8000-PC.exe
+    ControlClick  x100 Y350, ahk_exe LK8000-PC.exe
+    ControlClick  x600 Y520, ahk_exe LK8000-PC.exe
+}
+
+SetWind(dir,wind) {
+    ;MsgBox ,%wind%
+    ControlClick  x930 Y550, ahk_exe LK8000-PC.exe
+    ControlClick  x866 Y300, ahk_exe LK8000-PC.exe
+    ControlClick  x320 Y550, ahk_exe LK8000-PC.exe
+
+    ControlClick  x375 Y130, ahk_exe LK8000-PC.exe
+    Loop, Parse, wind
+    {
+        ClickNumber( A_LoopField)
+    }
+    ControlClick  x650 Y550, ahk_exe LK8000-PC.exe
+
+    ControlClick  x375 Y230, ahk_exe LK8000-PC.exe
+    Loop, Parse, dir
+    {
+        ClickNumber( A_LoopField)
+    }
+    ControlClick  x650 Y550, ahk_exe LK8000-PC.exe
+
+    ControlClick  x430 Y500, ahk_exe LK8000-PC.exe
+
+
+}    
+ 
+
+ClickNumber(n) {
+    if (n==1)
+        ControlClick  x100 Y200, ahk_exe LK8000-PC.exe
+    if ( n==2)
+        ControlClick  x300 Y200, ahk_exe LK8000-PC.exe
+    if ( n==3)
+        ControlClick  x500 Y200, ahk_exe LK8000-PC.exe
+    if ( n==4)
+        ControlClick  x100 Y300, ahk_exe LK8000-PC.exe
+    if ( n==5)
+        ControlClick  x300 Y300, ahk_exe LK8000-PC.exe 
+    if ( n==6)
+        ControlClick  x500 Y300, ahk_exe LK8000-PC.exe
+    if ( n==7)
+        ControlClick  x100 Y450, ahk_exe LK8000-PC.exe
+    if ( n==8)
+        ControlClick  x300 Y450, ahk_exe LK8000-PC.exe
+    if ( n==9)
+        ControlClick  x500 Y450, ahk_exe LK8000-PC.exe
+    if ( n==0)
+        ControlClick  x650 Y200, ahk_exe LK8000-PC.exe 
+   
+} 
+
+
 StartLK8000(param1, param2) {
     ;MmsgBox % param1 "`n" param2
     
@@ -86,8 +169,12 @@ StartLK8000(param1, param2) {
     ControlClick, FLY , ahk_exe LK8000-PC.exe
     Sleep, 5000 
     ControlClick  x500 Y250, ahk_exe LK8000-PC.exe
-    ;Sleep, 500 
     
+
+    SetBalaset()
+
+
+
     IniRead, TaskDir, Condor2LK.ini, TaskDir, TaskDir
     IniRead, StartHeight, %TaskDir%, Task, TPHeight1
     IniRead, WindDir, %TaskDir%, Weather, WindDir
@@ -98,6 +185,8 @@ StartLK8000(param1, param2) {
     IniRead, RaceStartDelay, %TaskDir%, GameOptions, RaceStartDelay
     IniRead, StartTimeWindow, %TaskDir%, GameOptions, StartTimeWindow
 
+    
+    SetWind(Round(WindDir),Round(WindSpeed*3.6)) 
 
     ;MsgBox, 0, StartHeight, %StartHeight%
     CustomMsgBox("StartHeight",StartHeight, Round(WindDir), Round(WindSpeed*3.6), Round(Inversion), Strength, Round(RaceStartDelay*60), Round(StartTimeWindow*60) ,"cRed")
