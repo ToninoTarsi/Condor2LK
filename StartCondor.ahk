@@ -6,19 +6,30 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #Include %A_ScriptDir%\JSON.ahk
 #Persistent
+compName2 := ""
 
 Run RunDll32.exe InetCpl.cpl`,ClearMyTracksByProcess 8	
 Run RunDll32.exe InetCpl.cpl`,ClearMyTracksByProcess 2
 
-compName1 := "Quarantine CUP-A"
+;compName1 := "Quarantine CUP-A" 
+;compName2 := "Quarantine A"
+
+compName1 := "CNVVV" 
+compName2 := "Campeonato"
+
 ;compName1 := "NouZaChalles"
+
 ;compName1 := "Pirineos-Server A"
+
 ;compName1 := "GP2020"
+;compName2 := "GP 2020"
+
 ;compName1 := "FFF"
+
 ;compName1 := "Eurobattle A"  ; http://condor-danmark.dk/serverlist-2/
+
 ;compName1 := "Norway"
  
-compName2 := "Quarantine A"
 
 pwd := ""
 

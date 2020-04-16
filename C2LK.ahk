@@ -29,14 +29,16 @@ IniRead, SceneryName, %TaskDir%, Task, Landscape
 Menu, tray, Icon , 01.ico, 1, 1
 Gui, Font, S14 CDefault, Verdana
 Gui, Add, Text, x24 y13 w110 h30 , Task type:
-Gui, Add, Radio, gRadiospeed vRadiospeed Checked1 x24 y63 w100 h30 , Speed
-Gui, Add, Radio, gRadioAAT  x134 y63 w100 h30 , AAT
+Gui, Add, Radio, gRadiospeed vRadiospeed  x24 y63 w100 h30 , Speed
+Gui, Add, Radio, gRadioAAT     x134 y63 w100 h30 , AAT
+Gui, Add, Radio, gRadioRace Checked1   x234 y63 w100 h30 , Race
+
 Gui, Add, Text, x210 y13 w110 h30 , Advance:
 Gui, Add, DropDownList, vAdvance Choose1 x300 y10 w100, Auto|Manual|Arm|ArmStart
-Gui, Add, Edit, Hidden1 vAATtime x234 y63 w100 h30 ,
+Gui, Add, Edit, Hidden1 vAATtime x334 y63 w100 h30 ,
 Gui, Add, Button,  x24 y113 w370 h120 , Convert
-Gui, Add, Text, Hidden1 x344 y70 w40 h30 , min.
-Gui, Show, x557 y353 h256 w418 , C2LK ; New GUI Window
+Gui, Add, Text, Hidden1 x444 y70 w40 h30 , min.
+Gui, Show, x557 y353 h256 w518 , C2LK ; New GUI Window
 Return
 
 RadioAAT:
@@ -45,6 +47,11 @@ RadioAAT:
 Return
 
 Radiospeed:
+	GuiControl, hide, AATtime
+	GuiControl, hide, min.
+Return
+
+RadioRace:
 	GuiControl, hide, AATtime
 	GuiControl, hide, min.
 Return
@@ -58,247 +65,255 @@ profiler(Advance)
 ;**********************If Speed task**********************************
 If Radiospeed = 1
 {
-FileDelete, %LKTaskDir%
-;**********************First line and task type - Speed******************
-FileAppend, <?xml version="1.0" encoding="UTF-8"?> `n, %LKTaskDir%, UTF-8
-FileAppend, <lk-task type="Default"> `n, %LKTaskDir%, UTF-8
-;***********************Task advance option************************************
-FileAppend, %A_Tab% <options auto-advance="%Advance%"> `n, %LKTaskDir%, UTF-8
-;***********************Read Start and Finish type data form Condor task file*****
-IniRead, StartType, %TaskDir%, Task, TPSectorType1
-IniRead, StartAngle, %TaskDir%, Task, TPAngle1
-IniRead, StartRadius, %TaskDir%, Task, TPRadius1
-IniRead, Count, %TaskDir%, Task, Count
-Count := Count - 1
-IniRead, FinishType, %TaskDir%, Task, TPSectorType%Count%
-IniRead, FinishAngle, %TaskDir%, Task, TPAngle%Count%
-IniRead, FinishRadius, %TaskDir%, Task, TPRadius%Count%
-;****************Set Start and Finish type and Radius****************
+	FileDelete, %LKTaskDir%
+	;**********************First line and task type - Speed******************
+	FileAppend, <?xml version="1.0" encoding="UTF-8"?> `n, %LKTaskDir%, UTF-8
+	FileAppend, <lk-task type="Default"> `n, %LKTaskDir%, UTF-8
+	;***********************Task advance option************************************
+	FileAppend, %A_Tab% <options auto-advance="%Advance%"> `n, %LKTaskDir%, UTF-8
+	;***********************Read Start and Finish type data form Condor task file*****
+	IniRead, StartType, %TaskDir%, Task, TPSectorType1
+	IniRead, StartAngle, %TaskDir%, Task, TPAngle1
+	IniRead, StartRadius, %TaskDir%, Task, TPRadius1
+	IniRead, Count, %TaskDir%, Task, Count
+	Count := Count - 1
+	IniRead, FinishType, %TaskDir%, Task, TPSectorType%Count%
+	IniRead, FinishAngle, %TaskDir%, Task, TPAngle%Count%
+	IniRead, FinishRadius, %TaskDir%, Task, TPRadius%Count%
+	;****************Set Start and Finish type and Radius****************
 
-	If (StartType = 0) and (StartAngle = 180)
-		FileAppend, %A_Tab% %A_Tab% <start type="line" radius="%StartRadius%.000000"/> `n, %LKTaskDir%, UTF-8
-		else 
-			If (StartAngle = 90)
-				FileAppend, %A_Tab% %A_Tab% <start type="sector" radius="%StartRadius%.000000"/> `n, %LKTaskDir%, UTF-8
-				else
-					If (StartAngle = 360)
-					FileAppend, %A_Tab% %A_Tab% <start type="circle" radius="%StartRadius%.000000"/> `n, %LKTaskDir%, UTF-8
-					else
-					{
-					FileAppend, %A_Tab% %A_Tab% <start type="line" radius="%StartRadius%.000000"/> `n, %LKTaskDir%, UTF-8	
-					MsgBox  0x00,,Unsupported Start type sector. Line sector will be used,1
-					}
-
-	If (FinishType = 0) and (FinishAngle = 180)
-			FileAppend, %A_Tab% %A_Tab% <finish type="line" radius="%FinishRadius%.000000"/> `n, %LKTaskDir%, UTF-8
+		If (StartType = 0) and (StartAngle = 180)
+			FileAppend, %A_Tab% %A_Tab% <start type="line" radius="%StartRadius%.000000"/> `n, %LKTaskDir%, UTF-8
 			else 
-				If (FinishAngle = 90)
-					FileAppend, %A_Tab% %A_Tab% <finish type="sector" radius="%FinishRadius%.000000"/> `n, %LKTaskDir%, UTF-8
+				If (StartAngle = 90)
+					FileAppend, %A_Tab% %A_Tab% <start type="sector" radius="%StartRadius%.000000"/> `n, %LKTaskDir%, UTF-8
 					else
-						If (FinishAngle = 360)
-						FileAppend, %A_Tab% %A_Tab% <finish type="circle" radius="%FinishRadius%.000000"/> `n, %LKTaskDir%, UTF-8
+						If (StartAngle = 360)
+						FileAppend, %A_Tab% %A_Tab% <start type="circle" radius="%StartRadius%.000000"/> `n, %LKTaskDir%, UTF-8
 						else
 						{
-						FileAppend, %A_Tab% %A_Tab% <finish type="line" radius="%FinishRadius%.000000"/> `n, %LKTaskDir%, UTF-8	
-						MsgBox   0x00,,Unsupported Finish type sector. Line sector will be used,1
+						FileAppend, %A_Tab% %A_Tab% <start type="line" radius="%StartRadius%.000000"/> `n, %LKTaskDir%, UTF-8	
+						MsgBox  0x00,,Unsupported Start type sector. Line sector will be used,1
 						}
-						
-;*******************Check if window type TP's used in condor task************* used 
-a := 2 ; temp variable for the loop
-b := 0 ; If b = 0 no windows used. If b = 1 windows used in Condor task.
 
-;*************Loop to determine b**************
-While a < count
-		{
-		IniRead, TpType, %TaskDir%, Task, TPSectorType%a%
-		a:=a + 1
-		If TpType <> 0 
+		If (FinishType = 0) and (FinishAngle = 180)
+				FileAppend, %A_Tab% %A_Tab% <finish type="line" radius="%FinishRadius%.000000"/> `n, %LKTaskDir%, UTF-8
+				else 
+					If (FinishAngle = 90)
+						FileAppend, %A_Tab% %A_Tab% <finish type="sector" radius="%FinishRadius%.000000"/> `n, %LKTaskDir%, UTF-8
+						else
+							If (FinishAngle = 360)
+							FileAppend, %A_Tab% %A_Tab% <finish type="circle" radius="%FinishRadius%.000000"/> `n, %LKTaskDir%, UTF-8
+							else
+							{
+							FileAppend, %A_Tab% %A_Tab% <finish type="line" radius="%FinishRadius%.000000"/> `n, %LKTaskDir%, UTF-8	
+							MsgBox   0x00,,Unsupported Finish type sector. Line sector will be used,1
+							}
+							
+	;*******************Check if window type TP's used in condor task************* used 
+	a := 2 ; temp variable for the loop
+	b := 0 ; If b = 0 no windows used. If b = 1 windows used in Condor task.
+
+	;*************Loop to determine b**************
+	While a < count
 			{
-			a := count + 1
-			b := 1
-			MsgBox   0x00,,Unsupported Tp type. 500m cylinders will be used.,1
+			IniRead, TpType, %TaskDir%, Task, TPSectorType%a%
+			a:=a + 1
+			If TpType <> 0 
+				{
+				a := count + 1
+				b := 1
+				MsgBox   0x00,,Unsupported Tp type. 500m cylinders will be used.,1
+				}
 			}
-		}
 
-c := 0 ; If c = 0 all tp angles are the same. If c = 1 Tp angles not all the same FAI tp's should be used.
-a := 3 ; temp variable for the loop
+	c := 0 ; If c = 0 all tp angles are the same. If c = 1 Tp angles not all the same FAI tp's should be used.
+	a := 3 ; temp variable for the loop
 
-;***********Loop to determine c************************
-IniRead, Tp1Angle, %TaskDir%, Task, TPAngle2
-While a < count
-		{
+	;***********Loop to determine c************************
+	IniRead, Tp1Angle, %TaskDir%, Task, TPAngle2
+	While a < count
+	{
 		IniRead, TpAngle, %TaskDir%, Task, TPAngle%a%
 		a:=a + 1
 		If Tp1Angle <> %TpAngle% 
-			{
+		{
 			a := count + 1
 			c := 1
 			MsgBox 0x00,,Mixed Tp angles not alowed. FAI sectors will be used.,1
 
-			}
 		}
+	}
 
-r := 0 ; If r = 0 all tp radii are the same. If r = 1 Tp radii not all the same radii of the first tp should be used.
-a := 3 ; temp variable for the loop
-;***********Loop to determine r************************
-IniRead, Tp1Radius, %TaskDir%, Task, TpRadius2
+	r := 0 ; If r = 0 all tp radii are the same. If r = 1 Tp radii not all the same radii of the first tp should be used.
+	a := 3 ; temp variable for the loop
+	;***********Loop to determine r************************
+	IniRead, Tp1Radius, %TaskDir%, Task, TpRadius2
 
-While a < count
-		{
-		IniRead, TpRadius, %TaskDir%, Task, TpRadius%a%
-		a:=a + 1
-		If Tp1Radius <> %TpRadius% 
+	While a < count
 			{
-			a := count + 1
-			r := 1
-			MsgBox  0x00,,Mixed Tp radii not alowed. %Tp1Radius% m radii will be used.,1
-			}
-		}
-
-
-
-;******adding sector type line to the lkt file***********
-
-if b = 1 
-	FileAppend, %A_Tab% %A_Tab% <sector type="circle" Radius="500.000000"/> `n, %LKTaskDir%, UTF-8
-	else
-		if c = 1 
-			FileAppend, %A_Tab% %A_Tab% <sector type="sector" Radius="500.000000"/> `n, %LKTaskDir%, UTF-8
-		else
-			if Tp1Angle = 360
-				FileAppend, %A_Tab% %A_Tab% <sector type="circle" Radius="%Tp1Radius%.000000"/> `n, %LKTaskDir%, UTF-8
-			else
-				If Tp1Angle = 90
-					FileAppend, %A_Tab% %A_Tab% <sector type="sector" Radius="%Tp1Radius%.000000"/> `n, %LKTaskDir%, UTF-8
-				else
+			IniRead, TpRadius, %TaskDir%, Task, TpRadius%a%
+			a:=a + 1
+			If Tp1Radius <> %TpRadius% 
 				{
-				FileAppend, %A_Tab% %A_Tab% <sector type="sector" Radius="%Tp1Radius%.000000"/> `n, %LKTaskDir%, UTF-8
-					if (count > 2)
+				a := count + 1
+				r := 1
+				MsgBox  0x00,,Mixed Tp radii not alowed. %Tp1Radius% m radii will be used.,1
+				}
+			}
+
+
+
+	;******adding sector type line to the lkt file***********
+
+	if b = 1 
+		FileAppend, %A_Tab% %A_Tab% <sector type="circle" Radius="500.000000"/> `n, %LKTaskDir%, UTF-8
+		else
+			if c = 1 
+				FileAppend, %A_Tab% %A_Tab% <sector type="sector" Radius="500.000000"/> `n, %LKTaskDir%, UTF-8
+			else
+				if Tp1Angle = 360
+					FileAppend, %A_Tab% %A_Tab% <sector type="circle" Radius="%Tp1Radius%.000000"/> `n, %LKTaskDir%, UTF-8
+				else
+					If Tp1Angle = 90
+						FileAppend, %A_Tab% %A_Tab% <sector type="sector" Radius="%Tp1Radius%.000000"/> `n, %LKTaskDir%, UTF-8
+					else
 					{
-					MsgBox  0x00,,Sector angle not alowed. FAI sectors with %Tp1Radius% m radii will be used.,1
+					FileAppend, %A_Tab% %A_Tab% <sector type="sector" Radius="%Tp1Radius%.000000"/> `n, %LKTaskDir%, UTF-8
+						if (count > 2)
+						{
+						MsgBox  0x00,,Sector angle not alowed. FAI sectors with %Tp1Radius% m radii will be used.,1
+						}
 					}
-				}
 
-FileAppend, %A_Tab% %A_Tab% <rules> `n, %LKTaskDir%, UTF-8
-IniRead, TPWidth, %TaskDir%, Task, TPWidth%Count%
-IniRead, TPPosZ, %TaskDir%, Task, TPPosZ%Count%
-if (TPWidth > TPPosZ)
-	{
-	FinishHeight := TPWidth - TPPosZ 
-	}
-	else
-	{
-	FinishHeight := 0
-	}		
-FileAppend, %A_Tab% %A_Tab% %A_Tab% <finish fai-height="false" min-height="%FinishHeight%000"/> `n, %LKTaskDir%, UTF-8
-IniRead, StartHeight, %TaskDir%, Task, TPHeight1
-FileAppend, %A_Tab% %A_Tab% %A_Tab% <start max-height="%StartHeight%000" max-height-margin="0" max-speed="138889" max-speed-margin="0" height-ref="ASL"/> `n, %LKTaskDir%, UTF-8
-FileAppend, %A_Tab% %A_Tab% </rules> `n, %LKTaskDir%, UTF-8
-FileAppend, %A_Tab% </options> `n, %LKTaskDir%, UTF-8
-
-;******************task points writing procedure**************************
-FileAppend, %A_Tab% <taskpoints> `n, %LKTaskDir%, UTF-8
-id := 1 
-while id <= count 
-	{
-	IniRead, TPName, %TaskDir%, Task, TPName%id%
-	LKidx := id - 1
-	if (LKidx = 0)
+	FileAppend, %A_Tab% %A_Tab% <rules> `n, %LKTaskDir%, UTF-8
+	IniRead, TPWidth, %TaskDir%, Task, TPWidth%Count%
+	IniRead, TPPosZ, %TaskDir%, Task, TPPosZ%Count%
+	if (TPWidth > TPPosZ)
 		{
-		FileAppend, %A_Tab% %A_Tab% <point idx="%LKidx%" name="S:%TPName%"/> `n, %LKTaskDir%, UTF-8
-		id :=id + 1
+		FinishHeight := TPWidth - TPPosZ 
 		}
 		else
-			if (LKidx = count-1)
+		{
+		FinishHeight := 0
+		}		
+	FileAppend, %A_Tab% %A_Tab% %A_Tab% <finish fai-height="false" min-height="%FinishHeight%000"/> `n, %LKTaskDir%, UTF-8
+	IniRead, StartHeight, %TaskDir%, Task, TPHeight1
+	FileAppend, %A_Tab% %A_Tab% %A_Tab% <start max-height="%StartHeight%000" max-height-margin="0" max-speed="138889" max-speed-margin="0" height-ref="ASL"/> `n, %LKTaskDir%, UTF-8
+	FileAppend, %A_Tab% %A_Tab% </rules> `n, %LKTaskDir%, UTF-8
+	FileAppend, %A_Tab% </options> `n, %LKTaskDir%, UTF-8
+
+	;******************task points writing procedure**************************
+	FileAppend, %A_Tab% <taskpoints> `n, %LKTaskDir%, UTF-8
+	id := 1 
+	while id <= count 
+		{
+		IniRead, TPName, %TaskDir%, Task, TPName%id%
+		LKidx := id - 1
+		if (LKidx = 0)
 			{
-			FileAppend, %A_Tab% %A_Tab% <point idx="%LKidx%" name="F:%TPName%"/> `n, %LKTaskDir%, UTF-8
+			FileAppend, %A_Tab% %A_Tab% <point idx="%LKidx%" name="S:%TPName%"/> `n, %LKTaskDir%, UTF-8
 			id :=id + 1
 			}
 			else
-			{
-			FileAppend, %A_Tab% %A_Tab% <point idx="%LKidx%" name="%LKidx%:%TPName%"/> `n, %LKTaskDir%, UTF-8
-			id :=id + 1
-			}
-	}
-FileAppend, %A_Tab% </taskpoints> `n, %LKTaskDir%, UTF-8
-
-;******************waypoints writing procedure*****************************************************
-FileAppend, %A_Tab% <waypoints> `n, %LKTaskDir%, UTF-8
-
-dllName = %condorDir%\NaviCon.dll
-if(! fileexist(dllName)) {
-	MsgBox NaviCon.dll doesnt exist silly!
-	ExitApp
-} 
-
-trnPath = %condorDir%\Landscapes\%SceneryName%\%SceneryName%.trn
-if(! fileexist(trnPath)) {
-	MsgBox trnPath doesnt exist silly!
-	ExitApp
-}
-	
-hModule := DllCall("LoadLibrary", Str, dllName)
-
-
-if( hModule =0 ) {
-	MsgBox NaviCon.dll loading error!
-	ExitApp
-}
-
-
-DllCall("NaviCon\NaviConInit", Str, trnPath)
-
-
-
-id := 1
-while id <= count
-	{
-
-	IniRead, TPName, %TaskDir%, Task, TPName%id%
-	IniRead, TPPosX, %TaskDir%, Task, TPPosX%id%
-	IniRead, TPPosY, %TaskDir%, Task, TPPosY%id%
-	IniRead, TPPosZ, %TaskDir%, Task, TPPosZ%id%
-
-			;MsgBox %TPName%  ,%TPPosX%, %TPPosY% , %TPPosZ%
-
-
-	Longitude := DllCall("NaviCon\XYToLon", Float, TPPosX, Float, TPPosY, Float)
-	Latitude := DllCall("NaviCon\XYToLat", Float, TPPosX, Float, TPPosY, Float)
-
-			;MsgBox %Longitude%  ,%Latitude%
-
-	If (id = 1)
-		{
-		FileAppend, %A_Tab% %A_Tab% <point name="S:%TPName%" latitude="%Latitude%" longitude="%Longitude%" altitude="%TPPosZ%.000000" flags="5"  format="2" style="1"/> `n, %LKTaskDir%, UTF-8
-		id := id + 1	
-		}
-		else
-			if (id = count)
+				if (LKidx = count-1)
 				{
-				FileAppend, %A_Tab% %A_Tab% <point name="F:%TPName%" latitude="%Latitude%" longitude="%Longitude%" altitude="%TPPosZ%.000000" flags="5"  format="2" style="1"/> `n, %LKTaskDir%, UTF-8
-				id := id + 1
+				FileAppend, %A_Tab% %A_Tab% <point idx="%LKidx%" name="F:%TPName%"/> `n, %LKTaskDir%, UTF-8
+				id :=id + 1
 				}
 				else
 				{
-				pn := id - 1
-				FileAppend, %A_Tab% %A_Tab% <point name="%pn%:%TPName%" latitude="%Latitude%" longitude="%Longitude%" altitude="%TPPosZ%.000000" flags="5"  format="2" style="1"/> `n, %LKTaskDir%, UTF-8
-				id := id + 1
+				FileAppend, %A_Tab% %A_Tab% <point idx="%LKidx%" name="%LKidx%:%TPName%"/> `n, %LKTaskDir%, UTF-8
+				id :=id + 1
 				}
+		}
+	FileAppend, %A_Tab% </taskpoints> `n, %LKTaskDir%, UTF-8
+
+	;******************waypoints writing procedure*****************************************************
+	FileAppend, %A_Tab% <waypoints> `n, %LKTaskDir%, UTF-8
+
+	dllName = %condorDir%\NaviCon.dll
+	if(! fileexist(dllName)) {
+		MsgBox NaviCon.dll doesnt exist silly!
+		ExitApp
+	} 
+
+	trnPath = %condorDir%\Landscapes\%SceneryName%\%SceneryName%.trn
+	if(! fileexist(trnPath)) {
+		MsgBox trnPath doesnt exist silly!
+		ExitApp
 	}
-DllCall("FreeLibrary", "UInt", hModule)  ; To conserve memory, the DLL may be unloaded after using it.
-FileAppend, %A_Tab% </waypoints> `n, %LKTaskDir%, UTF-8
-FileAppend, </lk-task>, %LKTaskDir%, UTF-8
-;ExitApp
+		
+	hModule := DllCall("LoadLibrary", Str, dllName)
+
+
+	if( hModule =0 ) {
+		MsgBox NaviCon.dll loading error!
+		ExitApp
+	}
+
+
+	DllCall("NaviCon\NaviConInit", Str, trnPath)
+
+
+
+	id := 1
+	while id <= count
+		{
+
+		IniRead, TPName, %TaskDir%, Task, TPName%id%
+		IniRead, TPPosX, %TaskDir%, Task, TPPosX%id%
+		IniRead, TPPosY, %TaskDir%, Task, TPPosY%id%
+		IniRead, TPPosZ, %TaskDir%, Task, TPPosZ%id%
+
+				;MsgBox %TPName%  ,%TPPosX%, %TPPosY% , %TPPosZ%
+
+
+		Longitude := DllCall("NaviCon\XYToLon", Float, TPPosX, Float, TPPosY, Float)
+		Latitude := DllCall("NaviCon\XYToLat", Float, TPPosX, Float, TPPosY, Float)
+
+				;MsgBox %Longitude%  ,%Latitude%
+
+		If (id = 1)
+			{
+			FileAppend, %A_Tab% %A_Tab% <point name="S:%TPName%" latitude="%Latitude%" longitude="%Longitude%" altitude="%TPPosZ%.000000" flags="5"  format="2" style="1"/> `n, %LKTaskDir%, UTF-8
+			id := id + 1	
+			}
+			else
+				if (id = count)
+					{
+					FileAppend, %A_Tab% %A_Tab% <point name="F:%TPName%" latitude="%Latitude%" longitude="%Longitude%" altitude="%TPPosZ%.000000" flags="5"  format="2" style="1"/> `n, %LKTaskDir%, UTF-8
+					id := id + 1
+					}
+					else
+					{
+					pn := id - 1
+					FileAppend, %A_Tab% %A_Tab% <point name="%pn%:%TPName%" latitude="%Latitude%" longitude="%Longitude%" altitude="%TPPosZ%.000000" flags="5"  format="2" style="1"/> `n, %LKTaskDir%, UTF-8
+					id := id + 1
+					}
+		}
+	DllCall("FreeLibrary", "UInt", hModule)  ; To conserve memory, the DLL may be unloaded after using it.
+	FileAppend, %A_Tab% </waypoints> `n, %LKTaskDir%, UTF-8
+	FileAppend, </lk-task>, %LKTaskDir%, UTF-8
+	;ExitApp
 }
 else
 
 ;***************************If AAT task***********************************	
 {	
+
 FileDelete, %LKTaskDir%
 
 ;**********************First line and task type - AAT******************
 FileAppend, <?xml version="1.0" encoding="UTF-8"?> `n, %LKTaskDir%, UTF-8
-FileAppend, <lk-task type="AAT"> `n , %LKTaskDir%, UTF-8
+if ( Radiospeed = 2) 
+{
+ FileAppend, <lk-task type="AAT"> `n , %LKTaskDir%, UTF-8
+}
+else 
+{
+ FileAppend, <lk-task type="Race"> `n , %LKTaskDir%, UTF-8
+}
 
 ;***********************Task advance option************************************
 FileAppend, %A_Tab% <options auto-advance="%Advance%" length="%AATtime%.000000">`n, %LKTaskDir%, UTF-8
