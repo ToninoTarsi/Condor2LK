@@ -159,7 +159,7 @@ StartLK8000(param1, param2) {
     Run, C2LK.exe
     WinWait  , ahk_exe C2LK.exe
     Sleep, 500
-    ControlClick, Button3 , ahk_exe C2LK.exe
+    ControlClick, Button4 , ahk_exe C2LK.exe
 
     IniRead, LKTaskDir, Condor2LK.ini, LKTaskDir, LKTaskDir
     SplitPath, LKTaskDir,, dirapp
