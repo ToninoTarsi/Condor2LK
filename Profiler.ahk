@@ -25,7 +25,10 @@ TF_InsertSuffix("!"LkDefaultAircraftDir,linenum,linenum, Handicap)
 
 linenum := TF_Find(LkDefaultAircraftDir,"","", "PolarFile1")
 TF_ReplaceLine("!"LkDefaultAircraftDir,linenum,linenum,"PolarFile1=")
+TF_InsertSuffix("!"LkDefaultAircraftDir,linenum,linenum, """")
 TF_InsertSuffix("!"LkDefaultAircraftDir,linenum,linenum, "C2lkpolar.plr")
+TF_InsertSuffix("!"LkDefaultAircraftDir,linenum,linenum, """")
+
 ;MsgBox, %linenum%
 
 
