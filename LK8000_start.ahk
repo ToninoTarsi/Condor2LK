@@ -63,58 +63,79 @@ CountDown(Secs) {
 
 SetBalaset() {
    ; Balast
-    ;Sleep, 100 
+    Sleep, 10 
     ControlClick  x930 Y550, ahk_exe LK8000-PC.exe
-    ;Sleep, 100
+    Sleep, 10
     ControlClick  x866 Y300, ahk_exe LK8000-PC.exe
-    ;Sleep, 100
+    Sleep, 10
     ControlClick  x100 Y550, ahk_exe LK8000-PC.exe
-    ;Sleep, 100
+    Sleep, 10
     ControlClick  x300 Y150, ahk_exe LK8000-PC.exe
-
-    ;Sleep, 100
+    Sleep, 10
     ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    Sleep, 10
     ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    Sleep, 10
     ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    Sleep, 10
     ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    Sleep, 10
     ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    Sleep, 10
     ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    Sleep, 10
     ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    Sleep, 10
     ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    Sleep, 10
     ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    Sleep, 10
     ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    Sleep, 10
     ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    Sleep, 10
     ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    Sleep, 10
     ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    Sleep, 10
     ControlClick  x930 Y570, ahk_exe LK8000-PC.exe
+    Sleep, 10
 
     ControlClick  x500 Y590, ahk_exe LK8000-PC.exe
+    Sleep, 10
     ControlClick  x100 Y350, ahk_exe LK8000-PC.exe
+    Sleep, 10
     ControlClick  x600 Y520, ahk_exe LK8000-PC.exe
+    Sleep, 10
 }
 
 SetWind(dir,wind) {
     ;MsgBox ,%wind%
     ControlClick  x930 Y550, ahk_exe LK8000-PC.exe
+    Sleep, 10 
     ControlClick  x866 Y300, ahk_exe LK8000-PC.exe
+    Sleep, 10
     ControlClick  x320 Y550, ahk_exe LK8000-PC.exe
+    Sleep, 10
 
     ControlClick  x375 Y130, ahk_exe LK8000-PC.exe
+    Sleep, 10
     Loop, Parse, wind
     {
         ClickNumber( A_LoopField)
     }
     ControlClick  x650 Y550, ahk_exe LK8000-PC.exe
-
+    Sleep, 10
     ControlClick  x375 Y230, ahk_exe LK8000-PC.exe
+    Sleep, 10
     Loop, Parse, dir
     {
         ClickNumber( A_LoopField)
     }
     ControlClick  x650 Y550, ahk_exe LK8000-PC.exe
-
+    Sleep, 10
     ControlClick  x430 Y500, ahk_exe LK8000-PC.exe
-
+    Sleep, 10
 
 }    
  
@@ -140,20 +161,20 @@ ClickNumber(n) {
         ControlClick  x500 Y450, ahk_exe LK8000-PC.exe
     if ( n==0)
         ControlClick  x650 Y200, ahk_exe LK8000-PC.exe 
-   
+   Sleep, 10
 } 
 
 
 StartLK8000(param1, param2) {
     ;MmsgBox % param1 "`n" param2
     
-    Sleep, 1000
+    Sleep, 100
 
     CountDown(1)
 
     Run, C2LK.exe
     WinWait  , ahk_exe C2LK.exe
-    Sleep, 500
+    Sleep, 100
     ControlClick, Button4 , ahk_exe C2LK.exe
 
     IniRead, LKTaskDir, Condor2LK.ini, LKTaskDir, LKTaskDir
@@ -165,9 +186,9 @@ StartLK8000(param1, param2) {
     IniRead, LK8000_X, Condor2LK.ini, ScreenPosition, LK8000_X
     IniRead, LK8000_Y, Condor2LK.ini, ScreenPosition, LK8000_Y
     WinMove  %LK8000_X%,  %LK8000_Y%
-    Sleep, 500 
+    Sleep, 100 
     ControlClick, FLY , ahk_exe LK8000-PC.exe
-    Sleep, 5000 
+    Sleep, 1000 
     ControlClick  x500 Y250, ahk_exe LK8000-PC.exe
     
 

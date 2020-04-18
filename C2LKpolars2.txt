@@ -281,7 +281,7 @@ MaxBallast=174
 BallastSecsToEmpty1=580
 SafteySpeed1=75000
 WingArea=14.90
-polar=714,580, 100.22,  -0.40, 150.11,  -0.77, 200.00,  -1.50,  14.90
+polar=714, 136 , 100.22,  -0.40, 150.11,  -0.77, 200.00,  -1.50,  14.90
 
 [Genesis2]
 Registration=

@@ -15,13 +15,20 @@ linenum := TF_Find(LkDefaultAircraftDir,"","", "SafteySpeed1")
 TF_ReplaceLine("!"LkDefaultAircraftDir,linenum,linenum,"SafteySpeed1=")
 IniRead, safetyspeed, C2LKPolars2.txt, %PlaneType%, SafteySpeed1
 ;MsgBox, %safetyspeed%
-
 TF_InsertSuffix("!"LkDefaultAircraftDir,linenum,linenum, safetyspeed)
 
 linenum := TF_Find(LkDefaultAircraftDir,"","", "Handicap1")
 TF_ReplaceLine("!"LkDefaultAircraftDir,linenum,linenum,"Handicap1=")
 IniRead, Handicap, C2LKPolars2.txt, %PlaneType%, Handicap1
 TF_InsertSuffix("!"LkDefaultAircraftDir,linenum,linenum, Handicap)
+
+
+linenum := TF_Find(LkDefaultAircraftDir,"","", "PolarFile1")
+TF_ReplaceLine("!"LkDefaultAircraftDir,linenum,linenum,"PolarFile1=")
+TF_InsertSuffix("!"LkDefaultAircraftDir,linenum,linenum, "C2lkpolar.plr")
+;MsgBox, %linenum%
+
+
 
 linenum := TF_Find(LkDefaultAircraftDir,"","", "BallastSecsToEmpty1")
 TF_ReplaceLine("!"LkDefaultAircraftDir,linenum,linenum,"BallastSecsToEmpty1=")
