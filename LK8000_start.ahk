@@ -188,9 +188,11 @@ StartLK8000(param1, param2) {
     WinMove  %LK8000_X%,  %LK8000_Y%
     Sleep, 100 
     ControlClick, FLY , ahk_exe LK8000-PC.exe
-    Sleep, 1000 
-    ControlClick  x500 Y250, ahk_exe LK8000-PC.exe
+    Sleep, 5000 
     
+    ControlClick  x500 Y250, ahk_exe LK8000-PC.exe
+    Sleep, 1000 
+
 
     SetBalaset()
 
@@ -208,6 +210,9 @@ StartLK8000(param1, param2) {
 
     
     SetWind(Round(WindDir),Round(WindSpeed*3.6)) 
+
+
+
 
     ;MsgBox, 0, StartHeight, %StartHeight%
     CustomMsgBox("StartHeight",StartHeight, Round(WindDir), Round(WindSpeed*3.6), Round(Inversion), Strength, Round(RaceStartDelay*60), Round(StartTimeWindow*60) ,"cRed")

@@ -178,13 +178,13 @@ ClickNumber(n) {
 StartLK8000(param1, param2) {
     ;MmsgBox % param1 "`n" param2
     
-    Sleep, 1000
+    Sleep, 100
 
     CountDown(15)
 
     Run, C2LK.exe
     WinWait  , ahk_exe C2LK.exe
-    Sleep, 500
+    Sleep, 100
     ControlClick, Button4 , ahk_exe C2LK.exe
 
     IniRead, LKTaskDir, Condor2LK.ini, LKTaskDir, LKTaskDir
@@ -196,11 +196,13 @@ StartLK8000(param1, param2) {
     IniRead, LK8000_X, Condor2LK.ini, ScreenPosition, LK8000_X
     IniRead, LK8000_Y, Condor2LK.ini, ScreenPosition, LK8000_Y
     WinMove  %LK8000_X%,  %LK8000_Y%
-    Sleep, 500 
+    Sleep, 100 
     ControlClick, FLY , ahk_exe LK8000-PC.exe
     Sleep, 5000 
-    ControlClick  x500 Y250, ahk_exe LK8000-PC.exe
     
+    ControlClick  x500 Y250, ahk_exe LK8000-PC.exe
+    Sleep, 1000 
+
 
     SetBalaset()
 
@@ -216,14 +218,14 @@ StartLK8000(param1, param2) {
     IniRead, RaceStartDelay, %TaskDir%, GameOptions, RaceStartDelay
     IniRead, StartTimeWindow, %TaskDir%, GameOptions, StartTimeWindow
 
-
+    
     SetWind(Round(WindDir),Round(WindSpeed*3.6)) 
+
+
+
 
     ;MsgBox, 0, StartHeight, %StartHeight%
     CustomMsgBox("StartHeight",StartHeight, Round(WindDir), Round(WindSpeed*3.6), Round(Inversion), Strength, Round(RaceStartDelay*60), Round(StartTimeWindow*60) ,"cRed")
     ExitApp
 
 }
-
-
-

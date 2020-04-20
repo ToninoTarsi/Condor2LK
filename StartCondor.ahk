@@ -7,17 +7,23 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #Include %A_ScriptDir%\JSON.ahk
 #Persistent
 compName2 := ""
-
 Run RunDll32.exe InetCpl.cpl`,ClearMyTracksByProcess 8	
 Run RunDll32.exe InetCpl.cpl`,ClearMyTracksByProcess 2
 
-;compName1 := "Quarantine CUP-A" 
-;compName2 := "Quarantine A"
 
-compName1 := "CNVVV" 
-compName2 := "Campeonato"
+; Server name
 
-;compName1 := "NouZaChalles"
+; compName1 := "Italian Championship A" 
+; compName2 := "Italian Championship-A"
+
+; compName1 := "CNVVV" 
+; compName2 := "Campeonato"
+
+; compName1 := "Corona Cup" 
+; compName2 := ""
+
+; compName1 := "NouZaChalles"
+; compName2 := ""
 
 ;compName1 := "Pirineos-Server A"
 
@@ -26,10 +32,11 @@ compName2 := "Campeonato"
 
 ;compName1 := "FFF"
 
-;compName1 := "Eurobattle A"  ; http://condor-danmark.dk/serverlist-2/
+compName1 := "Eurobattle A"  ; http://condor-danmark.dk/serverlist-2/
 
-;compName1 := "Norway"
- 
+; compName1 := "Tchin Tchin"
+; compName2 := ""
+
 
 pwd := ""
 
