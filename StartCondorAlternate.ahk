@@ -34,8 +34,12 @@ while ( true ) {
         ;MsgBox, %url%
         Run, %url%
         WinWait  , MULTIPLAYER
-        Sleep, 1000
-        ControlSend, TspSkinEdit1, %pwd% , MULTIPLAYER
+        if (  %pwd% != "" ) {
+            Sleep, 1000
+            ControlSend, TspSkinEdit1, %pwd% , MULTIPLAYER
+        }
+        WinMove  MULTIPLAYER 100, 100
+        ControlClick  Join, MULTIPLAYER
         Sleep, 1000
         ControlClick  Join, MULTIPLAYER
         Sleep, 1000

@@ -190,13 +190,13 @@ If Radiospeed = 1
 	IniRead, TPWidth, %TaskDir%, Task, TPWidth%Count%
 	IniRead, TPPosZ, %TaskDir%, Task, TPPosZ%Count%
 	if (TPWidth > TPPosZ)
-		{
+	{
 		FinishHeight := TPWidth - TPPosZ 
-		}
-		else
-		{
+	}
+	else
+	{
 		FinishHeight := 0
-		}		
+	}		
 	FileAppend, %A_Tab% %A_Tab% %A_Tab% <finish fai-height="false" min-height="%FinishHeight%000"/> `n, %LKTaskDir%, UTF-8
 	IniRead, StartHeight, %TaskDir%, Task, TPHeight1
 	FileAppend, %A_Tab% %A_Tab% %A_Tab% <start max-height="%StartHeight%000" max-height-margin="0" max-speed="138889" max-speed-margin="0" height-ref="ASL"/> `n, %LKTaskDir%, UTF-8
@@ -322,7 +322,19 @@ FileAppend, %A_Tab% <options auto-advance="%Advance%" length="%AATtime%.000000">
 FileAppend, %A_Tab% %A_Tab% <rules> `n, %LKTaskDir%, UTF-8
 IniRead, Count, %TaskDir%, Task, Count
 Count := Count - 1
-IniRead, FinishHeight, %TaskDir%, Task, TPWidth%Count%
+
+;IniRead, FinishHeight, %TaskDir%, Task, TPWidth%Count%
+
+IniRead, TPWidth, %TaskDir%, Task, TPWidth%Count%
+IniRead, TPPosZ, %TaskDir%, Task, TPPosZ%Count%
+if (TPWidth > TPPosZ)
+{
+	FinishHeight := TPWidth - TPPosZ 
+}
+else
+{
+	FinishHeight := 0
+}		
 
 FileAppend, %A_Tab% %A_Tab% %A_Tab% <finish fai-height="false" min-height="%FinishHeight%000"/> `n, %LKTaskDir%, UTF-8
 IniRead, StartHeight, %TaskDir%, Task, TPHeight1

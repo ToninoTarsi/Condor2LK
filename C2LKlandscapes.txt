@@ -5,7 +5,7 @@ CUP=
 
 [Centro_Italia]
 LKM=Centro_Italia.LKM
-DEM=Centro_Italia.DEM
+DEM=Centro_Italia30.DEM
 CUP=
 
 [Slovenia2]
@@ -58,4 +58,25 @@ CUP=
 LKM=France_Sud_C2.LKM
 DEM=France_Sud_C2.DEM
 CUP=
+
+[Barcelona_C2]
+LKM=Barcelona_C2.LKM
+DEM=Barcelona_C2.DEM
+CUP=
+
+[South_Italia_C2]
+LKM=South_Italia_C2.LKM
+DEM=South_Italia_C2.DEM
+CUP=
+
+[Barcelona_C2]
+LKM=Barcelona_C2.LKM
+DEM=Barcelona_C2.DEM
+CUP=
+
+[Jura_Mont-Blanc2]
+LKM=Jura_Mont-Blanc2.LKM
+DEM=Jura_Mont-Blanc2.DEM
+CUP=
+
 

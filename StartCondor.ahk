@@ -7,42 +7,55 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #Include %A_ScriptDir%\JSON.ahk
 #Persistent
 compName2 := ""
+pwd := ""
+
 Run RunDll32.exe InetCpl.cpl`,ClearMyTracksByProcess 8	
 Run RunDll32.exe InetCpl.cpl`,ClearMyTracksByProcess 2
 
 
 ; Server name
 
-; compName1 := "Italian Championship A" 
-; compName2 := "Italian Championship-A"
+; compName1 := "Cerdanya"
+; compName2 := "Gp5"
 
-; compName1 := "CNVVV" 
-; compName2 := "Campeonato"
+; compName1 := "Italian Championship A" 
+; compName2 := "ITALIAN CHAMPIONSHIP - A"
+
 
 ; compName1 := "Corona Cup" 
 ; compName2 := ""
+; pwd := "qqqhy"
+
 
 ; compName1 := "NouZaChalles"
-; compName2 := ""
+; compName2 := "AAT"
 
-;compName1 := "Pirineos-Server A"
+; compName1 := "GP2020"
+; compName2 := "GP 2020"
+; pwd := "qqqhy"
 
-;compName1 := "GP2020"
-;compName2 := "GP 2020"
-
-;compName1 := "FFF"
 
 compName1 := "Eurobattle A"  ; http://condor-danmark.dk/serverlist-2/
 
-; compName1 := "Tchin Tchin"
+; compName1 := "FR07-C2 TchinTchin"
+; compName2 := ""
+; pwd := ""
+
+; compName1 := "Riders du far Wave"
 ; compName2 := ""
 
+; compName1 := "FFF"
+; compName2 := ""
 
-pwd := ""
+; compName1 := "muge1"
+; compName2 := ""
 
+; compName1 := "13h30 Le pousse cafe"
+; compName2 := ""
 
-
-
+; compName1 := "Sky"
+; compName2 := ""
+ 
 
 
 compUrl = 0
@@ -56,9 +69,9 @@ while ( true ) {
     }
 
 
-    if ( compUrl == 0) { 
-        compUrl := CheckCompOfficial(compName1,compName2)
-    }
+    ; if ( compUrl == 0) { 
+    ;     compUrl := CheckCompOfficial(compName1,compName2)
+    ; }
 
     ;ToolTip, %compUrl%
 
@@ -66,10 +79,13 @@ while ( true ) {
         url := "cndr2://" . compUrl 
         ;MsgBox, %url%
         Run, %url%
-        Sleep, 1000
         WinWait  , MULTIPLAYER
-        Sleep, 1000
-        ControlSend, TspSkinEdit1, %pwd% , MULTIPLAYER
+        if (  %pwd% != "" ) {
+            Sleep, 1000
+            ControlSend, TspSkinEdit1, %pwd% , MULTIPLAYER
+        }
+        WinMove  MULTIPLAYER 100, 100
+        ControlClick  Join, MULTIPLAYER
         Sleep, 1000
         ControlClick  Join, MULTIPLAYER
         Sleep, 1000
