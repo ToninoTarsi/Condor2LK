@@ -51,7 +51,7 @@ CountDown(Secs) {
 }
 
 SetBalaset() {
-    delay := 1
+    delay := 100
    ; Balast
     Sleep, %delay% 
     ControlClick  x930 Y550, ahk_exe LK8000-PC.exe
@@ -131,7 +131,7 @@ SetWind(dir,wind) {
 }    
  
 ClickNumber(n) {
-    delay := 1
+    delay := 100
     if (n==1)
         ControlClick  x100 Y200, ahk_exe LK8000-PC.exe
     if ( n==2)
@@ -181,7 +181,9 @@ StartLK8000(theDelay) {
 
     Run, C2LK.exe
     WinWait  , ahk_exe C2LK.exe
-    Sleep, %delay%
+    Sleep, 1000
+    ControlClick, Button4 , ahk_exe C2LK.exe
+    Sleep, 1000
     ControlClick, Button4 , ahk_exe C2LK.exe
 
     IniRead, LKTaskDir, Condor2LK.ini, LKTaskDir, LKTaskDir
@@ -196,7 +198,7 @@ StartLK8000(theDelay) {
     Sleep, %delay% 
     ControlClick, FLY , ahk_exe LK8000-PC.exe
     
-    Sleep, %delay%00 
+    Sleep, 15000 
     
     ; ControlClick  x500 Y250, ahk_exe LK8000-PC.exe
     ; Sleep, %delay%0 
@@ -220,7 +222,7 @@ StartLK8000(theDelay) {
     SetWind(Round(WindDir),Round(WindSpeed*3.6)) 
 
     ControlClick  x500 Y250, ahk_exe LK8000-PC.exe
-    Sleep, %delay%0 
+    Sleep, 1000
 
 
     ; SetWorkingDir,D:/Condor2/Tools/CoTASAV21/

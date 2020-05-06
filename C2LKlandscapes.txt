@@ -79,4 +79,14 @@ LKM=Jura_Mont-Blanc2.LKM
 DEM=Jura_Mont-Blanc2.DEM
 CUP=
 
+[North-UK2]
+LKM=North-UK2.LKM
+DEM=North-UK2.DEM
+CUP=
 
+
+
+[Valencia_Madrid2]
+LKM=Valencia_Madrid2.LKM
+DEM=Valencia_Madrid22.DEM
+CUP=

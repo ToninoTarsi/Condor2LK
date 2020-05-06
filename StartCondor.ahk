@@ -30,12 +30,12 @@ Run RunDll32.exe InetCpl.cpl`,ClearMyTracksByProcess 2
 ; compName1 := "NouZaChalles"
 ; compName2 := "AAT"
 
-; compName1 := "GP2020"
-; compName2 := "GP 2020"
-; pwd := "qqqhy"
+compName1 := "GP2020"
+compName2 := "GP 2020"
+pwd := "xz26n"
 
 
-compName1 := "Eurobattle A"  ; http://condor-danmark.dk/serverlist-2/
+; compName1 := "Eurobattle A"  ; http://condor-danmark.dk/serverlist-2/
 
 ; compName1 := "FR07-C2 TchinTchin"
 ; compName2 := ""
