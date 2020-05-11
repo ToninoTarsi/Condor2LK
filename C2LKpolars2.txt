@@ -628,3 +628,32 @@ SafteySpeed1=77778
 WingArea=10.84
 polar=390,186, 101.02,  -0.53, 150.51,  -1.10, 200.00,  -2.28,  10.84
 
+[ASW20]
+Registration=
+CompetitionID=
+AircraftType1=ASW20
+Handicap1=121
+PolarName=ASW20
+PolarInformation=101.0177,-0.5340,150.5088,-1.1023,200.0000,-2.2840
+PolarReferenceMass=377
+PolarDryMass=377
+MaxBallast=150
+BallastSecsToEmpty1=186
+SafteySpeed1=77778
+WingArea=10.97
+polar=377, 159, 116.2, -0.77, 174.3, -1.89, 213.04, -3.3, 10.5
+
+[ASW20-FXB]
+Registration=
+CompetitionID=
+AircraftType1=ASW20
+Handicap1=121
+PolarName=ASW20
+PolarInformation=101.0177,-0.5340,150.5088,-1.1023,200.0000,-2.2840
+PolarReferenceMass=377
+PolarDryMass=377
+MaxBallast=150
+BallastSecsToEmpty1=186
+SafteySpeed1=77778
+WingArea=10.97
+polar=377, 159, 116.2, -0.77, 174.3, -1.89, 213.04, -3.3, 10.5

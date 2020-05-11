@@ -84,9 +84,12 @@ LKM=North-UK2.LKM
 DEM=North-UK2.DEM
 CUP=
 
-
-
 [Valencia_Madrid2]
 LKM=Valencia_Madrid2.LKM
 DEM=Valencia_Madrid22.DEM
+CUP=
+
+[Denmark5]
+LKM=Denmark5.LKM
+DEM=Denmark5.DEM
 CUP=
