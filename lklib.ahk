@@ -202,10 +202,12 @@ StartLK8000(theDelay) {
     ControlClick, Button4 , ahk_exe C2LK.exe
 
     IniRead, LKTaskDir, Condor2LK.ini, LKTaskDir, LKTaskDir
+    IniRead, LK8000_SX, Condor2LK.ini, ScreenPosition, LK8000_SX
+    IniRead, LK8000_SY, Condor2LK.ini, ScreenPosition, LK8000_SY
     SplitPath, LKTaskDir,, dirapp
     SplitPath, dirapp,, dirLK
 
-    Run %dirLK%\LK8000-PC.exe -x=960 -y=576
+    Run %dirLK%\LK8000-PC.exe -x=%LK8000_SX% -y=%LK8000_SY%
     WinWait  , ahk_exe LK8000-PC.exe
     IniRead, LK8000_X, Condor2LK.ini, ScreenPosition, LK8000_X
     IniRead, LK8000_Y, Condor2LK.ini, ScreenPosition, LK8000_Y
@@ -376,11 +378,11 @@ if  (ThermalsFlatsActivity==0)
     IniRead, Water, %TaskDir%, Plane, Water
 
     ;MsgBox , %Water%
-    if ( Water > 0  ) {
-        SetBalaset()
-    }
+    ; if ( Water > 0  ) {
+    ;     SetBalaset()
+    ; }
     
-    SetWind(Round(wd),Round(ws*3.6)) 
+    ;SetWind(Round(wd),Round(ws*3.6)) 
 
     ControlClick  x500 Y250, ahk_exe LK8000-PC.exe
     Sleep, 1000

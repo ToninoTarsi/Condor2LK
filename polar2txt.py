@@ -1,7 +1,7 @@
 import os
 
-poladDir = r"D:/Condor2/Tools/XCSoarPolarsHU12"
-outFile = r"C:/Sviluppo/Condor2LK/C2LKpolars2.txt"
+poladDir = r"D:/Condor2/Tools/XCSoarPolarsHU14"
+outFile = r"D:/Condor2/Tools/XCSoarPolarsHU14/C2LKpolars2.txt"
 
 
 fout = open(outFile, "w")
