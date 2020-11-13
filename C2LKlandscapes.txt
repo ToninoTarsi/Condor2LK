@@ -93,3 +93,8 @@ CUP=
 LKM=Denmark5.LKM
 DEM=Denmark5.DEM
 CUP=
+
+[South East UK3]
+LKM=South_East_UK3.LKM
+DEM=South_East_UK3.DEM
+CUP=

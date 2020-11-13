@@ -388,9 +388,9 @@ if  (ThermalsFlatsActivity==0)
     Sleep, 1000
 
 
-    ; SetWorkingDir,D:/Condor2/Tools/CoTASAV21/
-    ; Run, D:/Condor2/Tools/CoTASAV21/CoTASA.exe
-    ; SetWorkingDir %A_ScriptDir%
+    SetWorkingDir,D:/Condor2/Tools/CoTASAV22/
+    Run, D:/Condor2/Tools/CoTASAV22/CoTASA.exe
+    SetWorkingDir %A_ScriptDir%
 
     CustomMsgBox("StartHeight",StartHeight, WindDir, WindSpeed, Round(Inversion), Strength, Round(RaceStartDelay*60), Round(StartTimeWindow*60) ,CloudBase,ThermalsWidth,ThermalsActivity,ThermalsFlatsActivity,PenaltyCloudFlying, IconsVisibleRange , altMsg,"cRed")
 
